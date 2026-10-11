@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saif Eddine Horchi — Ingenieur Mechatronik Feinwerktechnik</title>
+<meta name="description" content="Ingenieur Mechatronik Feinwerktechnik mit Doppel-Bachelor, Absolvent der Hochschule München. Über 3 Jahre praktische Erfahrung in Fahrzeugtechnik, KFZ-Diagnose, Medizintechnik und Testautomatisierung. München.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1220;
+    --bg2:#0F1A2E;
+    --card:#131F35;
+    --card-brd:#1E2E4A;
+    --ink:#EAF0FA;
+    --muted:#8FA0BC;
+    --accent:#3B82F6;
+    --accent2:#22D3EE;
+    --glow:#3B82F640;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  a{color:var(--accent2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  /* ── Nav ────────────────────────────────────────────────── */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:#0B1220CC;
+    border-bottom:1px solid var(--card-brd);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:"Sora",sans-serif;font-weight:800;font-size:1.02rem;letter-spacing:.02em;color:var(--ink)}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:.9rem;font-weight:500}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .langbar{display:flex;border:1px solid var(--card-brd);border-radius:99px;overflow:hidden;margin-left:6px}
+  .langbar button{
+    appearance:none;border:none;background:transparent;cursor:pointer;
+    font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.08em;
+    padding:6px 13px;color:var(--muted);
+  }
+  .langbar button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  @media(max-width:760px){.nav-links a.nl{display:none}}
+
+  /* ── Hero ───────────────────────────────────────────────── */
+  .hero{position:relative;padding:80px 0 70px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;pointer-events:none}
+  .hero-bg .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .hero-bg .o1{width:520px;height:520px;background:#1D4ED8;top:-220px;right:-120px}
+  .hero-bg .o2{width:420px;height:420px;background:#0E7490;bottom:-260px;left:-140px;opacity:.35}
+  .circuit{position:absolute;inset:0;width:100%;height:100%;opacity:.16}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:center}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"JetBrains Mono",monospace;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent2);
+    border:1px solid #164E63;background:#0E749020;
+    padding:7px 14px;border-radius:99px;margin-bottom:22px;
+  }
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:#34D399;box-shadow:0 0 10px #34D399}
+  h1{
+    font-family:"Sora",sans-serif;font-weight:800;
+    font-size:clamp(2.5rem,5.6vw,4rem);
+    line-height:1.06;letter-spacing:-.02em;margin-bottom:18px;
+  }
+  h1 .grad{background:linear-gradient(92deg,var(--accent) 10%,var(--accent2) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{color:var(--muted);font-size:1.12rem;max-width:56ch;margin-bottom:30px}
+  .lede b{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:42px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:"Sora",sans-serif;font-weight:600;font-size:.92rem;
+    padding:13px 24px;border-radius:12px;
+    background:linear-gradient(92deg,var(--accent),#2563EB);color:#fff;
+    box-shadow:0 8px 28px var(--glow);
+    transition:transform .15s,box-shadow .15s;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px var(--glow);text-decoration:none}
+  .btn.ghost{background:transparent;border:1px solid var(--card-brd);color:var(--ink);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--accent)}
+  .btn svg{width:17px;height:17px;flex:0 0 auto}
+  .stats{display:flex;gap:14px;flex-wrap:wrap}
+  .stat{
+    background:var(--card);border:1px solid var(--card-brd);border-radius:16px;
+    padding:14px 20px;min-width:128px;
+  }
+  .stat .n{font-family:"Sora",sans-serif;font-weight:800;font-size:1.5rem;background:linear-gradient(92deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .l{color:var(--muted);font-size:.78rem;margin-top:2px}
+
+  /* portrait */
+  .portrait{position:relative;justify-self:center}
+  .portrait .ring{
+    position:absolute;inset:-16px;border-radius:28px;
+    background:conic-gradient(from 140deg,var(--accent),var(--accent2),transparent 55%,var(--accent));
+    filter:blur(22px);opacity:.55;
+  }
+  .portrait img{
+    position:relative;display:block;
+    width:min(320px,72vw);aspect-ratio:343/373;object-fit:cover;
+    border-radius:24px;border:1px solid #2A3D60;
+    box-shadow:0 24px 60px #00000070;
+  }
+  .badge{
+    position:absolute;right:-18px;bottom:26px;
+    background:#0F1A2EF0;border:1px solid var(--card-brd);border-radius:14px;
+    padding:10px 16px;backdrop-filter:blur(8px);
+    box-shadow:0 10px 30px #00000060;
+  }
+  .badge .b1{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--accent2);letter-spacing:.1em;text-transform:uppercase}
+  .badge .b2{font-family:"Sora",sans-serif;font-weight:700;font-size:.92rem}
+
+  /* ── Sections ───────────────────────────────────────────── */
+  section{padding:76px 0 8px}
+  .sec-head{margin-bottom:38px}
+  .sec-kicker{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px}
+  h2{font-family:"Sora",sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.01em}
+
+  /* expertise cards */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .xcard{
+    background:linear-gradient(160deg,var(--card),#101B30);
+    border:1px solid var(--card-brd);border-radius:20px;padding:26px;
+    transition:transform .18s,border-color .18s;
+  }
+  .xcard:hover{transform:translateY(-4px);border-color:#2E4670}
+  .xcard .ic{
+    width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;
+    background:linear-gradient(140deg,#1D4ED830,#0E749030);border:1px solid #22406E;
+  }
+  .xcard .ic svg{width:23px;height:23px;stroke:var(--accent2)}
+  .xcard h3{font-family:"Sora",sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:8px}
+  .xcard p{color:var(--muted);font-size:.92rem}
+
+  /* timeline */
+  .timeline{position:relative;margin-left:8px}
+  .timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--accent2) 60%,transparent)}
+  .titem{position:relative;padding:0 0 34px 34px}
+  .titem::before{
+    content:"";position:absolute;left:-6px;top:6px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 14px var(--glow);
+  }
+  .titem .when{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--accent2);letter-spacing:.06em;margin-bottom:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .pill{background:#052E1B;border:1px solid #14532D;color:#4ADE80;border-radius:99px;padding:2px 10px;font-size:.66rem}
+  .tcard{
+    background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:22px 24px;
+  }
+  .tcard h3{font-family:"Sora",sans-serif;font-size:1.08rem;font-weight:700}
+  .tcard .firm{color:var(--muted);font-size:.9rem;margin:2px 0 14px}
+  .tcard ul{list-style:none;display:grid;gap:8px}
+  .tcard li{position:relative;padding-left:22px;color:#C4CFE2;font-size:.93rem}
+  .tcard li::before{
+    content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;
+    border:2px solid var(--accent);border-left:none;border-bottom:none;transform:rotate(45deg);
+  }
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .tag{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--accent2);background:#0E749018;border:1px solid #164E63;border-radius:8px;padding:4px 10px}
+
+  /* skills */
+  .skills-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+  .panel{background:var(--card);border:1px solid var(--card-brd);border-radius:20px;padding:26px}
+  .panel h3{font-family:"Sora",sans-serif;font-size:1rem;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .panel h3 svg{width:19px;height:19px;stroke:var(--accent2)}
+  .panel + .panel{margin-top:18px}
+  .sgroup + .sgroup{margin-top:20px;padding-top:20px;border-top:1px solid var(--card-brd)}
+  .sgroup .glabel{font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .sk{margin-bottom:15px}
+  .sk .row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px}
+  .sk .row .lv{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--muted)}
+  .bar{height:7px;border-radius:99px;background:#0B1424;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1s ease}
+  .rv.in .bar[data-v="100"] i{width:100%}.rv.in .bar[data-v="90"] i{width:90%}
+  .panel .sk:last-child{margin-bottom:0}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{background:#0B1424;border:1px solid var(--card-brd);border-radius:10px;padding:7px 13px;font-size:.84rem;color:#C4CFE2}
+  .chip.hl{border-color:#22406E;color:var(--ink);background:linear-gradient(140deg,#1D4ED820,#0E749020)}
+
+  /* education */
+  .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .ecard{background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px}
+  .ecard .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(140deg,#1D4ED830,#0E749030);border:1px solid #22406E}
+  .ecard .ic svg{width:22px;height:22px;stroke:var(--accent2)}
+  .ecard h3{font-family:"Sora",sans-serif;font-size:1rem;font-weight:700;line-height:1.4}
+  .ecard p{color:var(--muted);font-size:.88rem}
+  .ecard .when{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent2);margin-bottom:4px}
+  .ecard .thesis{margin-top:10px;padding-top:10px;border-top:1px dashed var(--card-brd);color:#C4CFE2;font-size:.86rem}
+  .ecard .thesis .lbl{display:block;font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* extras */
+  .extra-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .extra-grid .panel p{color:var(--muted);font-size:.92rem}
+  .extra-grid .panel + .panel{margin-top:0}
+
+  /* contact */
+  .contact-box{
+    position:relative;overflow:hidden;
+    background:linear-gradient(140deg,#12213E,#0D1830);
+    border:1px solid #24406E;border-radius:26px;
+    padding:52px;margin:76px 0 60px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;
+  }
+  .contact-box .orb{position:absolute;width:380px;height:380px;border-radius:50%;background:#1D4ED8;filter:blur(110px);opacity:.35;right:-120px;top:-140px;pointer-events:none}
+  .contact-box > *{position:relative}
+  .contact-box img{width:88px;height:88px;object-fit:cover;border-radius:50%;border:2px solid var(--accent);box-shadow:0 0 26px var(--glow)}
+  .contact-box h2{margin-bottom:8px}
+  .contact-box p{color:var(--muted);max-width:46ch}
+  .contact-actions{display:flex;flex-direction:column;gap:12px}
+
+  footer{border-top:1px solid var(--card-brd);padding:26px 0 34px;color:var(--muted);font-size:.84rem}
+
+  .sec-sub{color:var(--muted);margin-top:10px;max-width:70ch}
+  .trow{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:start}
+  .trow + .trow{margin-top:14px;padding-top:14px;border-top:1px solid var(--card-brd)}
+  .trow .tk{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:8px}
+  @media(max-width:520px){.trow{grid-template-columns:1fr;gap:6px}.trow .tk{padding-top:0}}
+
+  /* reveal on scroll */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:44px}
+    .portrait{order:-1}
+    .cards3{grid-template-columns:1fr}
+    .skills-grid{grid-template-columns:1fr}
+    .edu-grid{grid-template-columns:1fr}
+    .extra-grid{grid-template-columns:1fr}
+    .contact-box{grid-template-columns:1fr;padding:36px;text-align:left}
+  }
+  @media(max-width:520px){
+    .wrap{padding:0 16px}
+    .badge{right:-6px}
+    .contact-box{padding:28px 22px}
+    .contact-actions .btn{word-break:break-all}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="logo">SAIF<span>.</span>HORCHI</div>
+    <div class="nav-links">
+      <a class="nl" href="#expertise" data-i18n="navExpertise">Kompetenzen</a>
+      <a class="nl" href="#laufbahn" data-i18n="navCareer">Laufbahn</a>
+      <a class="nl" href="#skills" data-i18n="navSkills">Skills</a>
+      <a class="nl" href="#kontakt" data-i18n="navContact">Kontakt</a>
+      <div class="langbar" role="group" aria-label="Sprache / Language">
+        <button type="button" id="btn-de" aria-pressed="true" onclick="setLang('de')">DE</button>
+        <button type="button" id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg">
+    <div class="orb o1"></div><div class="orb o2"></div>
+    <svg class="circuit" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="#3B82F6" stroke-width="1">
+        <path d="M-50,500 H160 C190,500 190,440 220,440 C250,440 250,560 280,560 C310,560 310,440 340,440 C370,440 370,560 400,560 C430,560 430,500 460,500 H1250"/>
+        <path d="M-50,455 H260 l20,-20 H540 l20,20 H1250" />
+        <path d="M-50,410 H120 l30,-30 H420 l30,30 H700 l30,-30 H1250"/>
+        <path d="M-50,365 H600 l24,-24 H1250" stroke-dasharray="2 7"/>
+        <circle cx="160" cy="500" r="5"/><circle cx="460" cy="500" r="5"/><circle cx="540" cy="435" r="5"/><circle cx="730" cy="380" r="5"/>
+        <circle cx="950" cy="150" r="60"/><circle cx="950" cy="150" r="90"/><circle cx="950" cy="150" r="120"/>
+        <path d="M950,30 V270 M830,150 H1070" stroke-dasharray="4 6"/>
+        <path d="M950,150 L1010,100" stroke-width="2"/>
+        <rect x="700" y="230" width="90" height="60" rx="6"/>
+        <path d="M712,230 v-14 M730,230 v-14 M748,230 v-14 M766,230 v-14 M712,290 v14 M730,290 v14 M748,290 v14 M766,290 v14"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span><span data-i18n="kicker">Ingenieur Mechatronik Feinwerktechnik · München</span></span>
+      <h1 data-i18n-html="heroTitle">Mechatronik,<br>geprüft nach <span class="grad">Norm.</span></h1>
+      <p class="lede" data-i18n-html="heroLede">Ich bin <b>Saif Eddine Horchi</b> — Ingenieur mit Doppel-Bachelor und Absolvent der Hochschule München. Über 3 Jahre praktische Erfahrung in den Bereichen Fahrzeugtechnik, KFZ-Diagnose, Medizintechnik und Testautomatisierung.</p>
+      <div class="cta-row">
+        <a class="btn" href="mailto:saifeddine.horchi@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span data-i18n="btnMail">E-Mail schreiben</span>
+        </a>
+        <a class="btn ghost" href="tel:+4915205756623">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.070 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +49 152 057 566 23
+        </a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="n">3+</div><div class="l" data-i18n="stat1">Jahre Erfahrung</div></div>
+        <div class="stat"><div class="n">2×</div><div class="l" data-i18n="stat2">Bachelor-Abschluss</div></div>
+        <div class="stat"><div class="n">IEC</div><div class="l">60601-1 &amp; 60601-2-2</div></div>
+        <div class="stat"><div class="n">4</div><div class="l" data-i18n="stat4">Sprachen</div></div>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="ring" aria-hidden="true"></div>
+      <img src="saif.jpg" alt="Porträt von Saif Eddine Horchi" width="343" height="373">
+      <div class="badge"><div class="b1" data-i18n="badgeTop">Bachelor · HM</div><div class="b2" data-i18n="badge">Mechatronik</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="expertise">
+    <div class="sec-head rv">
+      <p class="sec-kicker" data-i18n="k1">Was ich mitbringe</p>
+      <h2 data-i18n="secExpertise">Drei Kompetenzfelder</h2>
+    </div>
+    <div class="cards3">
+      <div class="xcard rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <h3 data-i18n="x1t">Medizintechnik</h3>
+        <p data-i18n="x1p">Test und Zertifizierung medizinischer Geräte. Kenntnisse in IEC 60601-1 &amp; IEC 60601-2-2 — elektrische Sicherheit, Hochfrequenz-Chirurgie-Prüfungen und akustische Schallpegelmessungen an Alarmsystemen.</p>
+      </div>
+      <div class="xcard rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.940-7.94l-3.76 3.76z"/></svg></div>
+        <h3 data-i18n="x2t">KFZ-Diagnose &amp; Fahrzeugtechnik</h3>
+        <p data-i18n="x2p">KFZ-Diagnostik (OBD), Fehlererkennung, Montage/Demontage von Fahrzeugbauteilen. Fundierte Erfahrung in Fehleranalyse und -behebung anhand von Schaltplänen und Verdrahtungsdiagrammen.</p>
+      </div>
+      <div class="xcard rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3 data-i18n="x3t">E-Mobilität &amp; Testautomatisierung</h3>
+        <p data-i18n="x3p">Weiterbildung in Elektromobilität, Automatisierung und Hochvolttechnik. Grundkenntnisse in HIL (Hardware-in-the-Loop), grundlegendes Verständnis von Fahrzeug-BUS-Systemen (CAN, LIN-LAN, FlexRay).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="laufbahn">
+    <div class="sec-head rv">
+      <p class="sec-kicker" data-i18n="k2">Werdegang</p>
+      <h2 data-i18n="secCareer">Berufliche Laufbahn</h2>
+      <p class="sec-sub" data-i18n="careerSub">Stationen u.a. bei SGS Germany, BMW, Peugeot Autohaus, Flixbus und Familienbetrieb.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="titem rv">
+        <div class="when"><span data-i18n="d1">01/2024 — heute</span><span class="pill" data-i18n="current">Aktuell</span></div>
+        <div class="tcard">
+          <h3 data-i18n="j1t">Weiterbildung &amp; berufliche Entwicklung</h3>
+          <p class="firm" data-i18n="j1c">Online-Lernen und Bewerbungsphase · München</p>
+          <ul>
+            <li data-i18n="j1b1">Erfolgreiche Teilnahme an zertifizierten Kursen zur Vertiefung der Kenntnisse in Elektromobilität und Automatisierung</li>
+            <li data-i18n="j1b2">Entwicklung fortgeschrittener Fähigkeiten in KFZ-Diagnose und Fahrzeugtechnik durch praktische Online-Trainings</li>
+            <li data-i18n="j1b3">Beherrschung der IEC 60601-Normen zur elektrischen Sicherheit in der Medizintechnik durch spezialisierte Weiterbildung</li>
+            <li data-i18n="j1b4">Erlangung umfassender Kompetenzen in Testverfahren und Hochvolttechnik durch gezielte Kursmodule</li>
+            <li data-i18n="j1b5">Erwerb von Fähigkeiten zur Implementierung neuer Technologien in der Automobilindustrie durch Kursabschlüsse</li>
+            <li data-i18n="j1b6">Besuch der Fahrschule zum Erwerb des Führerscheins Klasse B</li>
+          </ul>
+          <div class="tags"><span class="tag" data-i18n="tagEmob">Elektromobilität</span><span class="tag" data-i18n="tagAuto">Automatisierung</span><span class="tag" data-i18n="tagHv">Hochvolttechnik</span><span class="tag">IEC 60601</span></div>
+        </div>
+      </div>
+
+      <div class="titem rv">
+        <div class="when" data-i18n="d2">10/2020 — 08/2023</div>
+        <div class="tcard">
+          <h3 data-i18n="j2t">Werkstudent</h3>
+          <p class="firm">SGS Germany GmbH · <span data-i18n="muc">München</span> · <span data-i18n="j2c">Teilzeit, 20 Std./Woche</span></p>
+          <ul>
+            <li data-i18n="j2b1">Test und Zertifizierung medizinischer Geräte im Bereich elektrische Sicherheit nach internationalen Normen</li>
+            <li data-i18n="j2b2">Eigenständiger Aufbau, Planung und Durchführung komplexer Laborversuche gemäß IEC 60601-1 zur Gewährleistung der Produktkonformität</li>
+            <li data-i18n="j2b3">Durchführung und Auswertung von Spezialprüfungen, insbesondere Hochfrequenz-Chirurgie-Prüfungen gemäß IEC 60601-2-2</li>
+            <li data-i18n="j2b4">Akustische Schallpegelmessungen an medizinischen Alarmsystemen zur Sicherstellung von Geräuschpegelvorgaben und Normkonformität</li>
+            <li data-i18n="j2b5">Erstellung und Pflege von Prüfberichtsvorlagen sowie umfassende technische Dokumentation der Versuchsergebnisse</li>
+            <li data-i18n="j2b6">Analyse und Auswertung der Messergebnisse mittels geeigneter Softwaretools zur Unterstützung der Qualitätssicherung</li>
+            <li data-i18n="j2b7">Mitarbeit bei der Optimierung von Prüfprozessen und Entwicklung neuer Testmethoden im Labor</li>
+            <li data-i18n="j2b8">Zusammenarbeit mit interdisziplinären Teams zur Sicherstellung der Einhaltung gesetzlicher und normativer Anforderungen</li>
+          </ul>
+          <div class="tags"><span class="tag">IEC 60601-1</span><span class="tag">IEC 60601-2-2</span><span class="tag" data-i18n="tagHf">HF-Chirurgie</span><span class="tag" data-i18n="tagQs">Qualitätssicherung</span></div>
+        </div>
+      </div>
+
+      <div class="titem rv">
+        <div class="when" data-i18n="d3">07/2018 — 09/2018</div>
+        <div class="tcard">
+          <h3 data-i18n="j3t">Ferienjob in der Fahrzeugmontage</h3>
+          <p class="firm">BMW AG · <span data-i18n="muc">München</span></p>
+          <ul>
+            <li data-i18n="j3b1">Mitwirkung bei der Montage von Fahrzeugkomponenten in der Motoren- und Karosserieabteilung</li>
+            <li data-i18n="j3b2">Unterstützung bei der Qualitätskontrolle und Sichtprüfung montierter Bauteile zur Sicherstellung der Einhaltung von Produktionsstandards</li>
+            <li data-i18n="j3b3">Bedienung und Überwachung von Montagewerkzeugen und Maschinen unter Einhaltung der Sicherheitsvorschriften</li>
+            <li data-i18n="j3b4">Mitarbeit bei der Vorbereitung und Organisation von Bauteilen für den Produktionsprozess</li>
+            <li data-i18n="j3b5">Zusammenarbeit im Team zur termingerechten Fertigstellung der Fahrzeuge und Optimierung der Abläufe</li>
+            <li data-i18n="j3b6">Dokumentation von Arbeitsschritten und gegebenenfalls Meldung von Unregelmäßigkeiten oder technischen Problemen</li>
+          </ul>
+          <div class="tags"><span class="tag" data-i18n="tagAssembly">Montage</span><span class="tag" data-i18n="tagVisual">Sichtprüfung</span></div>
+        </div>
+      </div>
+
+      <div class="titem rv">
+        <div class="when" data-i18n="d4">07/2017 — 07/2018</div>
+        <div class="tcard">
+          <h3 data-i18n="j4t">Techniker (Fahrzeugkontrolle)</h3>
+          <p class="firm">Flixbus GmbH · <span data-i18n="muc">München</span></p>
+          <ul>
+            <li data-i18n="j4b1">Sicht- und Funktionskontrollen an Reisebussen nach internen Standards</li>
+            <li data-i18n="j4b2">Prüfung technischer Systeme</li>
+            <li data-i18n="j4b3">Fahreranzeigen und Fehlerdiagnose</li>
+            <li data-i18n="j4b4">Kommunikation mit der Werkstatt bei Mängeln sowie Unterstützung bei kleineren Instandhaltungen</li>
+          </ul>
+          <div class="tags"><span class="tag" data-i18n="tagDiag">Fehlerdiagnose</span><span class="tag" data-i18n="tagMaint">Instandhaltung</span></div>
+        </div>
+      </div>
+
+      <div class="titem rv">
+        <div class="when" data-i18n="d5">01/2008 — 01/2012</div>
+        <div class="tcard">
+          <h3 data-i18n="j5t">KFZ-Mechaniker</h3>
+          <p class="firm"><span data-i18n="j5c">Familienbetrieb</span> · Gafsa, <span data-i18n="tn">Tunesien</span></p>
+          <ul>
+            <li data-i18n="j5b1">Im Familienbetrieb als KFZ-Mechaniker gelernt und gearbeitet: praktische Erfahrungen in Wartung, Reparatur und Fehlerdiagnose, Stärkung von Teamarbeit und Verantwortungsbewusstsein</li>
+            <li data-i18n="j5b2">Montage/Demontage: Schritt-für-Schritt-Anleitungen, sichere Vorgehensweisen, Torque-Werte, Spann- und Befestigungstechnik, Werkzeugempfehlungen, Prüfschritte nach der Montage</li>
+            <li data-i18n="j5b3">Mechanische Vorgänge, Planung, Reparatur, Inspektionen, Wartung — praxisnah, inklusive Sicherheitshinweisen und Dokumentation</li>
+            <li data-i18n="j5b4">Handwerkliche Fähigkeiten: Demontage-/Montage-Techniken, Umgang mit gängigen Werkzeugen, Hilfsbaugruppen, Kleinteile-Handling, Spannungen, Verriegelungen</li>
+          </ul>
+          <div class="tags"><span class="tag" data-i18n="tagMaintW">Wartung</span><span class="tag" data-i18n="tagRepair">Reparatur</span><span class="tag" data-i18n="tagDiag">Fehlerdiagnose</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head rv">
+      <p class="sec-kicker" data-i18n="k3">Werkzeugkasten</p>
+      <h2 data-i18n="secSkills">Fähigkeiten &amp; Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="panel rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg><span data-i18n="grpTech">Fähigkeiten</span></h3>
+        <div class="sgroup">
+          <p class="glabel" data-i18n="gMed">Medizintechnik</p>
+          <div class="chips">
+            <span class="chip hl">IEC 60601-1</span>
+            <span class="chip hl">IEC 60601-2-2</span>
+            <span class="chip" data-i18n="cMedTest">Test &amp; Zertifizierung medizinischer Geräte</span>
+          </div>
+        </div>
+        <div class="sgroup">
+          <p class="glabel" data-i18n="gCar">Fahrzeugtechnik</p>
+          <div class="chips">
+            <span class="chip hl" data-i18n="cObd">KFZ-Diagnostik (OBD)</span>
+            <span class="chip" data-i18n="cFault">Fehlererkennung</span>
+            <span class="chip" data-i18n="cAssembly">Montage/Demontage von Fahrzeugbauteilen</span>
+            <span class="chip" data-i18n="cBus">BUS-Systeme: CAN, LIN-LAN, FlexRay (Grundverständnis)</span>
+          </div>
+        </div>
+        <div class="sgroup">
+          <p class="glabel" data-i18n="gTrain">Weiterbildung</p>
+          <div class="chips">
+            <span class="chip" data-i18n="cEmob">Elektromobilität</span>
+            <span class="chip" data-i18n="cAuto">Automatisierung</span>
+            <span class="chip" data-i18n="cHv">Hochvolttechnik</span>
+          </div>
+        </div>
+        <div class="sgroup">
+          <p class="glabel" data-i18n="gBasic">Grundkenntnisse</p>
+          <div class="chips">
+            <span class="chip">HIL (Hardware-in-the-Loop)</span>
+            <span class="chip">CANanalyzer</span>
+            <span class="chip">CANoe</span>
+            <span class="chip">CANtest</span>
+            <span class="chip">Python</span>
+            <span class="chip">Solid Works 3D</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="panel rv">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>Technical Skills</span></h3>
+          <div class="trow"><span class="tk">Design</span><div class="chips"><span class="chip">Solid Works 3D CAD</span></div></div>
+          <div class="trow"><span class="tk">Programming</span><div class="chips"><span class="chip">ANSYS</span><span class="chip">C++</span><span class="chip">Python</span><span class="chip">CANanalyzer</span><span class="chip">CANoe</span><span class="chip">CANtest</span></div></div>
+          <div class="trow"><span class="tk">Office prog.</span><div class="chips"><span class="chip">Microsoft Office Pack</span></div></div>
+        </div>
+        <div class="panel rv">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-i18n="grpLang">Sprachen</span></h3>
+          <div class="sk"><div class="row"><span data-i18n="langAr">Arabisch</span><span class="lv" data-i18n="lvlNative">Muttersprache</span></div><div class="bar" data-v="100"><i></i></div></div>
+          <div class="sk"><div class="row"><span data-i18n="langDe">Deutsch</span><span class="lv" data-i18n="lvlFluent">fließend</span></div><div class="bar" data-v="90"><i></i></div></div>
+          <div class="sk"><div class="row"><span data-i18n="langFr">Französisch</span><span class="lv" data-i18n="lvlFluent">fließend</span></div><div class="bar" data-v="90"><i></i></div></div>
+          <div class="sk"><div class="row"><span data-i18n="langEn">Englisch</span><span class="lv" data-i18n="lvlFluent">fließend</span></div><div class="bar" data-v="90"><i></i></div></div>
+        </div>
+        <div class="panel rv">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="grpSoft">Persönlich</span></h3>
+          <div class="chips">
+            <span class="chip" data-i18n="s1">Professionelle Kommunikation</span>
+            <span class="chip" data-i18n="s2">Multikulturell</span>
+            <span class="chip" data-i18n="s3">Selbstmotiviert</span>
+            <span class="chip" data-i18n="s4">Zielorientiert</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ausbildung">
+    <div class="sec-head rv">
+      <p class="sec-kicker" data-i18n="k4">Ausbildung</p>
+      <h2 data-i18n="secEdu">Akademischer Weg</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="ecard rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div>
+          <p class="when">2018 — 2023</p>
+          <h3 data-i18n="e1t">Bachelor „Mechatronik Feinwerktechnik“</h3>
+          <p data-i18n="e1s">Hochschule München für angewandte Wissenschaften · München</p>
+          <p data-i18n="e1f">Schwerpunkt: Gerätetechnik</p>
+          <p class="thesis"><span class="lbl" data-i18n="thesis">Bachelor-Thesis</span><span data-i18n="e1th">Entwicklung eines innovativen Pflegebetts</span></p>
+        </div>
+      </div>
+      <div class="ecard rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div>
+          <p class="when">2016</p>
+          <h3 data-i18n="e3t">Sprachkurs</h3>
+          <p data-i18n="e3s">Hochschule München für angewandte Wissenschaften · München</p>
+          <p class="thesis" data-i18n="e3d">Intensiver Deutschkurs · Deutsche Sprachprüfung für den Hochschulzugang</p>
+        </div>
+      </div>
+      <div class="ecard rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div>
+          <p class="when">2011 — 2014</p>
+          <h3 data-i18n="e2t">Bachelor „Wissenschaften und Technologie-Techniken im Maschinenbau-Ingenieurwesen“</h3>
+          <p data-i18n="e2s">Hochschule für technologische Studien Djerba · Tunesien</p>
+          <p data-i18n="e2f">Fachrichtung: Auto-Mechatronik</p>
+          <p class="thesis"><span class="lbl" data-i18n="thesis">Bachelor-Thesis</span><span data-i18n="e2th">Entwicklung eines Pantone-Motors</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mehr">
+    <div class="extra-grid">
+      <div class="panel rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.780 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span data-i18n="grpEngage">Soziales Engagement</span></h3>
+        <p data-i18n="engage">TAG e.V.: Aktives Mitglied der Tunesischen Akademiker Gesellschaft e.V.</p>
+      </div>
+      <div class="panel rv">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span data-i18n="grpHobby">Hobbys</span></h3>
+        <div class="chips">
+          <span class="chip" data-i18n="h1">Lesen von wissenschaftlichen und technischen Büchern</span>
+          <span class="chip" data-i18n="h2">Schwimmen</span>
+          <span class="chip" data-i18n="h3">Fußball</span>
+          <span class="chip" data-i18n="h4">Reisen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-box rv" id="kontakt">
+    <div class="orb" aria-hidden="true"></div>
+    <img src="saif.jpg" alt="Saif Eddine Horchi">
+    <div>
+      <p class="sec-kicker" data-i18n="k5">Kontakt</p>
+      <h2 data-i18n="contactTitle">Lassen Sie uns sprechen.</h2>
+      <p data-i18n="contactText">Ich freue mich über Ihre Nachricht — per E-Mail, telefonisch oder über LinkedIn. Adresse: München, Deutschland.</p>
+    </div>
+    <div class="contact-actions">
+      <a class="btn" href="mailto:saifeddine.horchi@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        saifeddine.horchi@gmail.com
+      </a>
+      <a class="btn ghost" href="tel:+4915205756623">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +49 152 057 566 23
+      </a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/saif-eddine-horchi-715505340" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%">
+    <span>© 2026 Saif Eddine Horchi</span>
+    <span class="mono" style="font-size:.76rem" data-i18n="footNote">Mechatronik Feinwerktechnik — München</span>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  de: {
+    _title: "Saif Eddine Horchi — Ingenieur Mechatronik Feinwerktechnik",
+    _desc: "Ingenieur Mechatronik Feinwerktechnik mit Doppel-Bachelor, Absolvent der Hochschule München. Über 3 Jahre praktische Erfahrung in Fahrzeugtechnik, KFZ-Diagnose, Medizintechnik und Testautomatisierung. München.",
+    navExpertise:"Kompetenzen", navCareer:"Laufbahn", navSkills:"Skills", navContact:"Kontakt",
+    kicker:"Ingenieur Mechatronik Feinwerktechnik · München",
+    heroTitle:'Mechatronik,<br>geprüft nach <span class="grad">Norm.</span>',
+    heroLede:'Ich bin <b>Saif Eddine Horchi</b> — Ingenieur mit Doppel-Bachelor und Absolvent der Hochschule München. Über 3 Jahre praktische Erfahrung in den Bereichen Fahrzeugtechnik, KFZ-Diagnose, Medizintechnik und Testautomatisierung.',
+    btnMail:"E-Mail schreiben",
+    stat1:"Jahre Erfahrung", stat2:"Bachelor-Abschluss", stat4:"Sprachen",
+    badgeTop:"Bachelor · HM", badge:"Mechatronik",
+    k1:"Was ich mitbringe",
+    secExpertise:"Drei Kompetenzfelder",
+    x1t:"Medizintechnik",
+    x1p:"Test und Zertifizierung medizinischer Geräte. Kenntnisse in IEC 60601-1 & IEC 60601-2-2 — elektrische Sicherheit, Hochfrequenz-Chirurgie-Prüfungen und akustische Schallpegelmessungen an Alarmsystemen.",
+    x2t:"KFZ-Diagnose & Fahrzeugtechnik",
+    x2p:"KFZ-Diagnostik (OBD), Fehlererkennung, Montage/Demontage von Fahrzeugbauteilen. Fundierte Erfahrung in Fehleranalyse und -behebung anhand von Schaltplänen und Verdrahtungsdiagrammen.",
+    x3t:"E-Mobilität & Testautomatisierung",
+    x3p:"Weiterbildung in Elektromobilität, Automatisierung und Hochvolttechnik. Grundkenntnisse in HIL (Hardware-in-the-Loop), grundlegendes Verständnis von Fahrzeug-BUS-Systemen (CAN, LIN-LAN, FlexRay).",
+    k2:"Werdegang",
+    secCareer:"Berufserfahrung",
+    careerSub:"Stationen u.a. bei SGS Germany, BMW, Peugeot Autohaus, Flixbus und Familienbetrieb.",
+    current:"Aktuell", muc:"München", tn:"Tunesien",
+    d1:"01/2024 — heute",
+    j1t:"Weiterbildung & berufliche Entwicklung", j1c:"Online-Lernen und Bewerbungsphase · München",
+    j1b1:"Erfolgreiche Teilnahme an zertifizierten Kursen zur Vertiefung der Kenntnisse in Elektromobilität und Automatisierung",
+    j1b2:"Entwicklung fortgeschrittener Fähigkeiten in KFZ-Diagnose und Fahrzeugtechnik durch praktische Online-Trainings",
+    j1b3:"Beherrschung der IEC 60601-Normen zur elektrischen Sicherheit in der Medizintechnik durch spezialisierte Weiterbildung",
+    j1b4:"Erlangung umfassender Kompetenzen in Testverfahren und Hochvolttechnik durch gezielte Kursmodule",
+    j1b5:"Erwerb von Fähigkeiten zur Implementierung neuer Technologien in der Automobilindustrie durch Kursabschlüsse",
+    j1b6:"Besuch der Fahrschule zum Erwerb des Führerscheins Klasse B",
+    tagEmob:"Elektromobilität", tagAuto:"Automatisierung", tagHv:"Hochvolttechnik",
+    d2:"10/2020 — 08/2023",
+    j2t:"Werkstudent", j2c:"Teilzeit, 20 Std./Woche",
+    j2b1:"Test und Zertifizierung medizinischer Geräte im Bereich elektrische Sicherheit nach internationalen Normen",
+    j2b2:"Eigenständiger Aufbau, Planung und Durchführung komplexer Laborversuche gemäß IEC 60601-1 zur Gewährleistung der Produktkonformität",
+    j2b3:"Durchführung und Auswertung von Spezialprüfungen, insbesondere Hochfrequenz-Chirurgie-Prüfungen gemäß IEC 60601-2-2",
+    j2b4:"Akustische Schallpegelmessungen an medizinischen Alarmsystemen zur Sicherstellung von Geräuschpegelvorgaben und Normkonformität",
+    j2b5:"Erstellung und Pflege von Prüfberichtsvorlagen sowie umfassende technische Dokumentation der Versuchsergebnisse",
+    j2b6:"Analyse und Auswertung der Messergebnisse mittels geeigneter Softwaretools zur Unterstützung der Qualitätssicherung",
+    j2b7:"Mitarbeit bei der Optimierung von Prüfprozessen und Entwicklung neuer Testmethoden im Labor",
+    j2b8:"Zusammenarbeit mit interdisziplinären Teams zur Sicherstellung der Einhaltung gesetzlicher und normativer Anforderungen",
+    tagHf:"HF-Chirurgie", tagQs:"Qualitätssicherung",
+    d3:"07/2018 — 09/2018",
+    j3t:"Ferienjob in der Fahrzeugmontage",
+    j3b1:"Mitwirkung bei der Montage von Fahrzeugkomponenten in der Motoren- und Karosserieabteilung",
+    j3b2:"Unterstützung bei der Qualitätskontrolle und Sichtprüfung montierter Bauteile zur Sicherstellung der Einhaltung von Produktionsstandards",
+    j3b3:"Bedienung und Überwachung von Montagewerkzeugen und Maschinen unter Einhaltung der Sicherheitsvorschriften",
+    j3b4:"Mitarbeit bei der Vorbereitung und Organisation von Bauteilen für den Produktionsprozess",
+    j3b5:"Zusammenarbeit im Team zur termingerechten Fertigstellung der Fahrzeuge und Optimierung der Abläufe",
+    j3b6:"Dokumentation von Arbeitsschritten und gegebenenfalls Meldung von Unregelmäßigkeiten oder technischen Problemen",
+    tagAssembly:"Montage", tagVisual:"Sichtprüfung",
+    d4:"07/2017 — 07/2018",
+    j4t:"Techniker (Fahrzeugkontrolle)",
+    j4b1:"Sicht- und Funktionskontrollen an Reisebussen nach internen Standards",
+    j4b2:"Prüfung technischer Systeme",
+    j4b3:"Fahreranzeigen und Fehlerdiagnose",
+    j4b4:"Kommunikation mit der Werkstatt bei Mängeln sowie Unterstützung bei kleineren Instandhaltungen",
+    tagDiag:"Fehlerdiagnose", tagMaint:"Instandhaltung",
+    d5:"01/2008 — 01/2012",
+    j5t:"KFZ-Mechaniker", j5c:"Familienbetrieb",
+    j5b1:"Im Familienbetrieb als KFZ-Mechaniker gelernt und gearbeitet: praktische Erfahrungen in Wartung, Reparatur und Fehlerdiagnose, Stärkung von Teamarbeit und Verantwortungsbewusstsein",
+    j5b2:"Montage/Demontage: Schritt-für-Schritt-Anleitungen, sichere Vorgehensweisen, Torque-Werte, Spann- und Befestigungstechnik, Werkzeugempfehlungen, Prüfschritte nach der Montage",
+    j5b3:"Mechanische Vorgänge, Planung, Reparatur, Inspektionen, Wartung — praxisnah, inklusive Sicherheitshinweisen und Dokumentation",
+    j5b4:"Handwerkliche Fähigkeiten: Demontage-/Montage-Techniken, Umgang mit gängigen Werkzeugen, Hilfsbaugruppen, Kleinteile-Handling, Spannungen, Verriegelungen",
+    tagMaintW:"Wartung", tagRepair:"Reparatur",
+    k3:"Werkzeugkasten",
+    secSkills:"Fähigkeiten & Technical Skills",
+    grpTech:"Fähigkeiten", grpLang:"Sprachen", grpSoft:"Persönlich",
+    gMed:"Medizintechnik", gCar:"Fahrzeugtechnik", gTrain:"Weiterbildung", gBasic:"Grundkenntnisse",
+    cMedTest:"Test & Zertifizierung medizinischer Geräte",
+    cObd:"KFZ-Diagnostik (OBD)", cFault:"Fehlererkennung", cAssembly:"Montage/Demontage von Fahrzeugbauteilen",
+    cBus:"BUS-Systeme: CAN, LIN-LAN, FlexRay (Grundverständnis)",
+    cEmob:"Elektromobilität", cAuto:"Automatisierung", cHv:"Hochvolttechnik",
+    langAr:"Arabisch", langDe:"Deutsch", langFr:"Französisch", langEn:"Englisch",
+    lvlNative:"Muttersprache", lvlFluent:"fließend",
+    s1:"Professionelle Kommunikation", s2:"Multikulturell", s3:"Selbstmotiviert", s4:"Zielorientiert",
+    k4:"Ausbildung",
+    secEdu:"Akademischer Weg",
+    thesis:"Bachelor-Thesis",
+    e1t:"Bachelor „Mechatronik Feinwerktechnik“",
+    e1s:"Hochschule München für angewandte Wissenschaften · München",
+    e1f:"Schwerpunkt: Gerätetechnik",
+    e1th:"Entwicklung eines innovativen Pflegebetts",
+    e3t:"Sprachkurs",
+    e3s:"Hochschule München für angewandte Wissenschaften · München",
+    e3d:"Intensiver Deutschkurs · Deutsche Sprachprüfung für den Hochschulzugang",
+    e2t:"Bachelor „Wissenschaften und Technologie-Techniken im Maschinenbau-Ingenieurwesen“",
+    e2s:"Hochschule für technologische Studien Djerba · Tunesien",
+    e2f:"Fachrichtung: Auto-Mechatronik",
+    e2th:"Entwicklung eines Pantone-Motors",
+    grpEngage:"Soziales Engagement", engage:"TAG e.V.: Aktives Mitglied der Tunesischen Akademiker Gesellschaft e.V.",
+    grpHobby:"Hobbys", h1:"Lesen von wissenschaftlichen und technischen Büchern", h2:"Schwimmen", h3:"Fußball", h4:"Reisen",
+    k5:"Kontakt",
+    contactTitle:"Lassen Sie uns sprechen.",
+    contactText:"Ich freue mich über Ihre Nachricht — per E-Mail, telefonisch oder über LinkedIn. Adresse: München, Deutschland.",
+    footNote:"Mechatronik Feinwerktechnik — München"
+  },
+  en: {
+    _title: "Saif Eddine Horchi — Engineer, Mechatronics & Precision Engineering",
+    _desc: "Engineer in mechatronics and precision engineering with two bachelor's degrees, graduate of Munich University of Applied Sciences. Over 3 years of hands-on experience in vehicle technology, automotive diagnostics, medical technology and test automation. Munich.",
+    navExpertise:"Expertise", navCareer:"Experience", navSkills:"Skills", navContact:"Contact",
+    kicker:"Mechatronics & Precision Engineering · Munich",
+    heroTitle:'Mechatronics,<br>tested to <span class="grad">standard.</span>',
+    heroLede:"I'm <b>Saif Eddine Horchi</b> — an engineer with two bachelor's degrees and a graduate of Munich University of Applied Sciences. Over 3 years of hands-on experience in vehicle technology, automotive diagnostics, medical technology and test automation.",
+    btnMail:"Send an email",
+    stat1:"Years of experience", stat2:"Bachelor's degrees", stat4:"Languages",
+    badgeTop:"Bachelor · HM", badge:"Mechatronics",
+    k1:"What I bring",
+    secExpertise:"Three fields of expertise",
+    x1t:"Medical Technology",
+    x1p:"Testing and certification of medical devices. Knowledge of IEC 60601-1 & IEC 60601-2-2 — electrical safety, high-frequency surgical equipment tests and acoustic sound level measurements on alarm systems.",
+    x2t:"Automotive Diagnostics & Vehicle Technology",
+    x2p:"Automotive diagnostics (OBD), fault detection, assembly/disassembly of vehicle components. Solid experience in fault analysis and troubleshooting using circuit and wiring diagrams.",
+    x3t:"E-Mobility & Test Automation",
+    x3p:"Training in electromobility, automation and high-voltage technology. Basic knowledge of HIL (hardware-in-the-loop), basic understanding of vehicle bus systems (CAN, LIN-LAN, FlexRay).",
+    k2:"Career",
+    secCareer:"Professional Experience",
+    careerSub:"Positions include SGS Germany, BMW, a Peugeot dealership, Flixbus and a family business.",
+    current:"Current", muc:"Munich", tn:"Tunisia",
+    d1:"01/2024 — present",
+    j1t:"Further Training & Professional Development", j1c:"Online learning and application phase · Munich",
+    j1b1:"Successfully completed certified courses to deepen knowledge of electromobility and automation",
+    j1b2:"Developed advanced skills in automotive diagnostics and vehicle technology through hands-on online training",
+    j1b3:"Mastery of the IEC 60601 standards for electrical safety in medical technology through specialised training",
+    j1b4:"Gained comprehensive competence in test procedures and high-voltage technology through targeted course modules",
+    j1b5:"Acquired skills for implementing new technologies in the automotive industry through completed courses",
+    j1b6:"Attending driving school to obtain a class B driving licence",
+    tagEmob:"Electromobility", tagAuto:"Automation", tagHv:"High-voltage technology",
+    d2:"10/2020 — 08/2023",
+    j2t:"Working Student", j2c:"Part-time, 20 h/week",
+    j2b1:"Testing and certification of medical devices in the field of electrical safety according to international standards",
+    j2b2:"Independent setup, planning and execution of complex lab tests according to IEC 60601-1 to ensure product conformity",
+    j2b3:"Performing and evaluating special tests, in particular high-frequency surgical equipment tests according to IEC 60601-2-2",
+    j2b4:"Acoustic sound level measurements on medical alarm systems to ensure noise level requirements and standards compliance",
+    j2b5:"Creating and maintaining test report templates and comprehensive technical documentation of test results",
+    j2b6:"Analysing and evaluating measurement results with suitable software tools to support quality assurance",
+    j2b7:"Contributing to the optimisation of test processes and the development of new test methods in the lab",
+    j2b8:"Working with interdisciplinary teams to ensure compliance with legal and regulatory requirements",
+    tagHf:"HF surgery", tagQs:"Quality assurance",
+    d3:"07/2018 — 09/2018",
+    j3t:"Summer Job in Vehicle Assembly",
+    j3b1:"Assisting with the assembly of vehicle components in the engine and body departments",
+    j3b2:"Supporting quality control and visual inspection of assembled parts to ensure compliance with production standards",
+    j3b3:"Operating and monitoring assembly tools and machines in compliance with safety regulations",
+    j3b4:"Helping prepare and organise components for the production process",
+    j3b5:"Teamwork to complete vehicles on schedule and optimise workflows",
+    j3b6:"Documenting work steps and, where necessary, reporting irregularities or technical problems",
+    tagAssembly:"Assembly", tagVisual:"Visual inspection",
+    d4:"07/2017 — 07/2018",
+    j4t:"Technician (Vehicle Inspection)",
+    j4b1:"Visual and functional checks on coaches according to internal standards",
+    j4b2:"Testing of technical systems",
+    j4b3:"Driver displays and fault diagnosis",
+    j4b4:"Communicating with the workshop about defects and supporting minor maintenance",
+    tagDiag:"Fault diagnosis", tagMaint:"Maintenance",
+    d5:"01/2008 — 01/2012",
+    j5t:"Car Mechanic", j5c:"Family business",
+    j5b1:"Trained and worked as a car mechanic in the family business: hands-on experience in maintenance, repair and fault diagnosis, strengthening teamwork and a sense of responsibility",
+    j5b2:"Assembly/disassembly: step-by-step procedures, safe working methods, torque values, clamping and fastening technology, tool recommendations, post-assembly checks",
+    j5b3:"Mechanical processes, planning, repair, inspections, maintenance — practical, including safety instructions and documentation",
+    j5b4:"Manual skills: disassembly/assembly techniques, handling common tools, auxiliary assemblies, small-parts handling, tensioning, locking mechanisms",
+    tagMaintW:"Maintenance", tagRepair:"Repair",
+    k3:"Toolbox",
+    secSkills:"Skills & Technical Skills",
+    grpTech:"Skills", grpLang:"Languages", grpSoft:"Personal",
+    gMed:"Medical technology", gCar:"Vehicle technology", gTrain:"Training", gBasic:"Basic knowledge",
+    cMedTest:"Testing & certification of medical devices",
+    cObd:"Automotive diagnostics (OBD)", cFault:"Fault detection", cAssembly:"Assembly/disassembly of vehicle components",
+    cBus:"Bus systems: CAN, LIN-LAN, FlexRay (basic understanding)",
+    cEmob:"Electromobility", cAuto:"Automation", cHv:"High-voltage technology",
+    langAr:"Arabic", langDe:"German", langFr:"French", langEn:"English",
+    lvlNative:"native", lvlFluent:"fluent",
+    s1:"Professional communication", s2:"Multicultural", s3:"Self-motivated", s4:"Goal-oriented",
+    k4:"Education",
+    secEdu:"Academic Background",
+    thesis:"Bachelor's thesis",
+    e1t:"Bachelor in Mechatronics & Precision Engineering",
+    e1s:"Munich University of Applied Sciences · Munich",
+    e1f:"Focus: device engineering",
+    e1th:"Development of an innovative care bed",
+    e3t:"Language Course",
+    e3s:"Munich University of Applied Sciences · Munich",
+    e3d:"Intensive German course · German language exam for university admission",
+    e2t:"Bachelor in Science and Technology Techniques in Mechanical Engineering",
+    e2s:"Higher Institute of Technological Studies Djerba · Tunisia",
+    e2f:"Specialisation: automotive mechatronics",
+    e2th:"Development of a Pantone engine",
+    grpEngage:"Social Involvement", engage:"TAG e.V.: Active member of the Tunisian Academics Association (Tunesische Akademiker Gesellschaft e.V.).",
+    grpHobby:"Hobbies", h1:"Reading scientific and technical books", h2:"Swimming", h3:"Football", h4:"Travel",
+    k5:"Contact",
+    contactTitle:"Let's talk.",
+    contactText:"I look forward to hearing from you — by email, by phone or on LinkedIn. Address: Munich, Germany.",
+    footNote:"Mechatronics & Precision Engineering — Munich"
+  }
+};
+
+function setLang(lang){
+  const t = I18N[lang];
+  if(!t) return;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(t[k] !== undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const k = el.getAttribute("data-i18n-html");
+    if(t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.documentElement.lang = lang;
+  document.title = t._title;
+  const meta = document.querySelector('meta[name="description"]');
+  if(meta) meta.setAttribute("content", t._desc);
+  document.getElementById("btn-de").setAttribute("aria-pressed", String(lang==="de"));
+  document.getElementById("btn-en").setAttribute("aria-pressed", String(lang==="en"));
+  try{ localStorage.setItem("cv-lang", lang); }catch(e){}
+}
+
+(function init(){
+  let lang = "de";
+  try{
+    const saved = localStorage.getItem("cv-lang");
+    if(saved === "de" || saved === "en"){ lang = saved; }
+    else if(navigator.language && !navigator.language.toLowerCase().startsWith("de")){ lang = "en"; }
+  }catch(e){
+    if(navigator.language && !navigator.language.toLowerCase().startsWith("de")){ lang = "en"; }
+  }
+  if(lang !== "de") setLang(lang);
+})();
+
+/* reveal on scroll */
+(function(){
+  const els = document.querySelectorAll(".rv");
+  if(!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches){
+    els.forEach(e=>e.classList.add("in")); return;
+  }
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target);} });
+  },{threshold:.12});
+  els.forEach(e=>io.observe(e));
+})();
+</script>
+
+</body>
+</html>
